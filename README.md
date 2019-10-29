@@ -9,5 +9,7 @@
 <h1>How Install</h1>
 <p>You should use the follow command pip:<br /> pip install dancrypt </p>
 <h1>How use</h1>
-<p>Coming Soon</p>
+txt_example = "Hello, Uinverse!  '#$% "
+msg_encrypted = 
+
 
