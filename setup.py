@@ -1,8 +1,8 @@
 from distutils.core import setup
 setup(
   name = 'dancrypt',
-  packages = ['crypt'],
-  version = '0.1',
+  packages = ['dancrypt'],
+  version = '0.2',
   license='DANIEL MONTEIRO',
   description = 'A Simple Encryptor and Decryptor',
   author = 'Daniel Monteiro',

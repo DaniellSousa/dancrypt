@@ -1,1 +1,1 @@
-from crypt.DanCrypt import DanCrypt
+from dancrypt.DanCrypt import DanCrypt
