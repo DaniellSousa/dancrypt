@@ -9,7 +9,18 @@
 <h1>How Install</h1>
 <p>You should use the follow command pip:<br /> pip install dancrypt </p>
 <h1>How use</h1>
-txt_example = "Hello, Uinverse!  '#$% "
-msg_encrypted = 
+<p>
+from dancrypt import DanCrypt <br /> <br />
 
 
+dan_c = DanCrypt() <br /> <br />
+
+teste = "Daniel Monteiro"<br />
+msg_encrypited = dan_c.e_crypt(teste)<br />
+msg_decrypited = dan_c.d_crypt(msg_encrypited)<br /><br />
+
+print(msg_encrypited)<br />
+print(msg_decrypited)<br />
+
+
+</p>

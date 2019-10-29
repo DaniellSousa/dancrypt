@@ -1,4 +1,5 @@
 # coding=utf-8
+
 list_ascii_table = [".", "/", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ";", "<", "=", ">", "?", "@", "A",
                     " ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", "A", "B", "C", "D", "E", "F",
                     "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
@@ -87,7 +88,10 @@ class DanCrypt:
 
 
 if __name__ == "__main__":
+
+    dan_c = DanCrypt()
+
     msg = "Hello, Universe!"
 
-    msg_crypt = e_crypt(msg)  # Crypt the message
-    msg_decrypt = d_crypt(msg_crypt)  # Decrypt the message
+    msg_crypt = dan_c.e_crypt(msg)  # Crypt the message
+    msg_decrypt = dan_c.d_crypt(msg_crypt)  # Decrypt the message
