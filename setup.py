@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'dancrypt',
   packages = ['dancrypt'],
-  version = '0.2',
+  version = '0.3',
   license='DANIEL MONTEIRO',
   description = 'A Simple Encryptor and Decryptor',
   author = 'Daniel Monteiro',
