@@ -8,7 +8,7 @@ setup(
   author = 'Daniel Monteiro',
   author_email = 'daniell.monteirosousa@gmail.com',
   url = 'https://github.com/DaniellSousa/dancrypt',
-  download_url = 'https://github.com/DaniellSousa/dancrypt/archive/master.zip',
+  download_url = 'https://github.com/DaniellSousa/dancrypt/archive/refs/tags/v-03.tar.gz',
   keywords = ['key', 'password', 'security', 'encrypt', 'decrypt', 'text', 'message'],
   install_requires=[
     ],
