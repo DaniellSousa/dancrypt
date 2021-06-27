@@ -12,7 +12,79 @@ list_letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
                 "u", "v", "w", "x", "y", "z"]
 
 
-def get_position_character_and_position_at_right(char, value_position):
+class DanCrypt:
+    def decrypt_text(self, text_to_decrypt):
+        str_final = get_text_with_half_one_position_right_in_ascci(text_to_decrypt)
+
+        str_final = get_inverse_fo_text(str_final)
+
+        str_final = get_text_shift_position_left_ascii(str_final, 3)
+
+        return str_final
+
+    def encrypt_text(self, text_to_encrypt):
+        str_final = get_text_shift_position_right_ascii(text_to_encrypt, 3)
+
+        str_final = get_inverse_fo_text(str_final)
+
+        str_final = get_text_with_half_one_position_left_in_ascci(str_final)
+
+        return str_final
+
+
+def get_text_with_half_one_position_right_in_ascci(text):
+    str_crypt = ""
+    iteration = int(len(str(text)) / 2)
+    i_final = 0
+    for s in str(text):
+        if i_final >= iteration:
+            p, l = get_position_character_and_position_at_right_ascii(s, 1)
+            str_crypt += l
+        else:
+            str_crypt += s
+        i_final += 1
+
+    return str_crypt
+
+
+def get_text_with_half_one_position_left_in_ascci(text):
+    str_crypt = ""
+    iteration = int(len(str(text)) / 2)
+    i_final = 0
+    for s in str(text):
+        if i_final >= iteration:
+            p, l = get_position_character_and_position_at_left_ascii(s, 1)
+            str_crypt += l
+        else:
+            str_crypt += s
+        i_final += 1
+
+    return str_crypt
+
+
+def get_inverse_fo_text(text):
+    return text[len(text)::-1]
+
+
+def get_text_shift_position_right_ascii(text_to_encrypt, position):
+    str_final = ""
+    for c in text_to_encrypt:
+        p, l = get_position_character_and_position_at_right_ascii(c, position)
+        str_final += l
+
+    return str_final
+
+
+def get_text_shift_position_left_ascii(text_to_encrypt, position):
+    str_final = ""
+    for c in text_to_encrypt:
+        p, l = get_position_character_and_position_at_left_ascii(c, position)
+        str_final += l
+
+    return str_final
+
+
+def get_position_character_and_position_at_right_ascii(char, value_position):
     i_letter = 0
     for a in list_ascii_table:
         if a == char:
@@ -23,7 +95,7 @@ def get_position_character_and_position_at_right(char, value_position):
     return 0, ""
 
 
-def get_position_character_and_position_at_left(char, value_position):
+def get_position_character_and_position_at_left_ascii(char, value_position):
     i_letter = 0
     for a in list_ascii_table:
         if a == char:
@@ -42,56 +114,16 @@ def is_letter(char):
     return False
 
 
-class DanCrypt:
-    def d_crypt(self, text_to_decrypt):
-        iteration = int(len(str(text_to_decrypt)) / 2)
-        i_final = 0
-        str_e1 = ""
-        for c in str(text_to_decrypt):
-            if i_final >= iteration:
-                p, l = get_position_character_and_position_at_right(c, 1)
-                str_e1 += l
-            else:
-                str_e1 += c
-            i_final += 1
-
-        str_final = str_e1[len(str_e1)::-1]
-
-        str_d = ""
-
-        for cd in str_final:
-            p, l = get_position_character_and_position_at_left(cd, 3)
-            str_d += l
-
-        return str_d
-
-    def e_crypt(self, text_to_encrypt):
-        str_final = ""
-        for c in text_to_encrypt:
-            p, l = get_position_character_and_position_at_right(c, 3)
-            str_final += l
-
-        str_final = str_final[len(str_final)::-1]
-
-        str_crypt = ""
-        iteration = int(len(str(str_final)) / 2)
-        i_final = 0
-        for s in str(str_final):
-            if i_final >= iteration:
-                p, l = get_position_character_and_position_at_left(s, 1)
-                str_crypt += l
-            else:
-                str_crypt += s
-            i_final += 1
-
-        return str_crypt
-
-
 if __name__ == "__main__":
-
     dan_c = DanCrypt()
 
     msg = "Hello, Universe!"
 
-    msg_crypt = dan_c.e_crypt(msg)  # Crypt the message
-    msg_decrypt = dan_c.d_crypt(msg_crypt)  # Decrypt the message
+    msg_crypt = dan_c.encrypt_text(msg)
+    msg_decrypt = dan_c.decrypt_text(msg_crypt)
+
+    print("Mensagem: " + str(msg))
+    print("Msg cripitografada: " + str(msg_crypt))
+    print("Msg descripitografada: " + str(msg_decrypt))
+
+    # tem erro no uso de vírgula
